@@ -88,9 +88,8 @@
     data() {
       return {
         goods: [],
-        classMap: ['decrease', 'discount', 'special', 'invoice', 'guarantee'],
-        listHeight: [],
         scrollY: 0,
+        listHeight: [],
         selectedFood: {}
       }
     },
@@ -118,6 +117,7 @@
       }
     },
     created() {
+      classMap =  ['decrease', 'discount', 'special', 'invoice', 'guarantee'],
       getGoods().then((goods) => {
         this.goods = goods
         this.$nextTick(() => {
@@ -125,7 +125,6 @@
           this._calculateHeight()
         })
       })
-
     },
     methods: {
       selectMenu(index, event) {
