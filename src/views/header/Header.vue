@@ -1,5 +1,5 @@
 <template>
-  <div class="header" @click="showDetail">
+  <div class="header" @click="showDetail" ref="header">
     <div class="content-wrapper">
       <div class="avatar">
         <img width="64" height="64" :src="seller.avatar">
@@ -56,6 +56,14 @@
         detailShow: false
       }
     },
+    // watch: {
+    //   'seller'() {
+    //     this.$nextTick(() => {
+    //       const Header =  this.$refs.header;
+    //       Header.style.backgroundImage = "url(" + this.seller.avatar + ")";
+    //     })
+    //   }
+    // },
     methods: {
       showDetail() {
         this.detailShow = true

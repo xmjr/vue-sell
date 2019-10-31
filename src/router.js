@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Goods from 'goods/Goods'
 
 
 Vue.use(Router)
@@ -10,8 +11,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      alias: '/Goods',
-      component: () => import('goods/Goods')
+      redirect: '/goods'
     },
     {
       path: '/goods',
@@ -29,5 +29,6 @@ export default new Router({
       component: () => import('seller/Seller')
     }
   ],
+
   linkActiveClass: 'active'
 })

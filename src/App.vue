@@ -35,7 +35,6 @@
       _getSeller() {
         getSeller('?id=' + this.seller.id).then((seller) => {
           this.seller = Object.assign({}, this.seller, seller);
-          console.log(this.seller.id);
         })
       }
     },
@@ -60,4 +59,6 @@
       color: rgb(77, 85, 93)
     .active
       color: rgb(240, 20 ,20)
+      border-1px(rgb(240, 20 ,20))
+      
 </style>
