@@ -21,7 +21,7 @@ export function loadFromLocal(id, key, def) {
     return def;
   }
   seller = JSON.parse(seller)[id];
-  if (!seller.key) {
+  if (!seller) {
     return def;
   }
   let ret = seller[key];

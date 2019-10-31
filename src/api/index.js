@@ -1,16 +1,17 @@
 import axios from 'axios'
 
 
-const urlMap = {
-  development: '/',
-  production: 'https://xmjr.gitee.io/vue-element/'
-}
-const baseUrl = urlMap[process.env.NODE_ENV]
+// const urlMap = {
+//   development: '/',
+//   production: 'http://xmjr.gitee.io/vue-sell/'
+// }
+// const baseUrl = urlMap[process.env.NODE_ENV]
 
 const ERR_OK = 0
-const getSeller = get('api/seller')
-const getGoods = get('api/goods')
-const getRatings = get('api/ratings')
+const getSeller = get('seller.json')
+const getGoods = get('goods.json')
+const getRatings = get('ratings.json')
+
 
 export {
   getSeller,
@@ -20,7 +21,7 @@ export {
 
 function get(url) {
   return function(params) {
-    return axios.get(baseUrl + url, {
+    return axios.get(process.env.VUE_APP_API + url, {
       params
     }).then((res)=> {
       const {errno, data} = res.data

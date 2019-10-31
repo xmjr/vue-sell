@@ -1,16 +1,17 @@
 
 const path = require('path')
 
-const appData = require('./data.json')
-const seller = appData.seller
-const goods = appData.goods
-const ratings = appData.ratings
+// const appData = require('./data.json')
+// const seller = appData.seller
+// const goods = appData.goods
+// const ratings = appData.ratings
 
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
 module.exports = {
+  publicPath: process.env.NODE_ENV === 'production' ? '/vue-sell/' : '/',
   lintOnSave: false,
 
   // 搭建服务器
@@ -18,32 +19,28 @@ module.exports = {
     host: '0.0.0.0',
     port: 8080,
     https: false,
-    compress: true,
-    overlay: {
-      warnings: true,
-      errors: true
-    },
+    compress: true
 
-    before(app) {
-      app.get('/api/seller', function(req, res) {
-        res.json( {
-          errno: 0,
-          data: seller
-        })
-      })
-      app.get('/api/goods', function(req, res) {
-        res.json({
-          errno: 0,
-          data: goods
-        })
-      })
-      app.get('/api/ratings', function(req,res) {
-        res.json({
-          errno: 0,
-          data: ratings
-        })
-      })
-    }
+    // before(app) {
+    //   app.get('/api/seller', function(req, res) {
+    //     res.json( {
+    //       errno: 0,
+    //       data: seller
+    //     })
+    //   })
+    //   app.get('/api/goods', function(req, res) {
+    //     res.json({
+    //       errno: 0,
+    //       data: goods
+    //     })
+    //   })
+    //   app.get('/api/ratings', function(req,res) {
+    //     res.json({
+    //       errno: 0,
+    //       data: ratings
+    //     })
+    //   })
+    // }
   },
   chainWebpack(config) {
     config.resolve.alias
